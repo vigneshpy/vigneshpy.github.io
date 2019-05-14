@@ -1,0 +1,866 @@
+﻿/*
+	Import Settings
+*/
+@import url('setting.less');
+
+
+/*
+*   Author: beshleyua
+*   Author URL: http://themeforest.net/user/beshleyua
+*/
+
+
+/* TABLE OF CONTENTS
+	1. Base
+	2. Container
+	3. Columns
+	4. Preloader
+	5. Typography
+	6. Forms
+	7. Alignments
+	8. Animations
+*/
+
+
+/*
+	1. Basic
+*/
+
+html {
+	margin-right: 0!important;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	border: none;
+	font-family: @default-font;
+	font-size: 15px;
+	color: @default-color;
+	background: @bg;
+	letter-spacing: @default-letter-spacing;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+.page {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	@media (max-width: 1023px) {
+		padding-top: 58px;
+		.lines-grid {
+			padding-left: 0;
+		}
+	}
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+/*
+	2. Container
+*/
+
+.container {
+	margin: 0;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	.transition(all 0.4s ease 0s);
+}
+
+.lines-grid {
+	padding-left: 44px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+	z-index: 113;
+	pointer-events: none;
+	.row {
+		margin: 0;
+		height: 100%;
+		.col {
+			padding: 0;
+			height: 100%;
+			.lines {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 1px;
+				height: 100%;
+				.line-1, .line-2 {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba(255,255,255,0.05);
+				}
+				.line-2 {
+					height: 0%;
+					background: rgba(255,255,255,0.15);
+					//-webkit-animation: lines 12.0s infinite ease-in-out;
+					//animation: lines 12.0s infinite ease-in-out;
+				}
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: @bg2;
+				.transition(all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000));
+			}
+		}
+	}
+	&.loaded {
+		.row {
+			.col {
+				&:after {
+					width: 0;
+				}
+			}
+		}
+	}
+	&.z-index {
+		z-index: 111;
+	}
+}
+
+
+/*
+	3. Columns
+*/
+
+.row {
+	margin: 0;
+	position: relative;
+	font-size: 0;
+	.col {
+		padding: 0;
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		font-size: @default-size;
+		min-height: 1px;
+		.col {
+			padding: 16px 28px;
+			@media (max-width: 560px) {
+				padding: 16px;
+			}
+		}
+		@media (min-width: 1330px) {
+			&.col-d-lg-12 {
+				width: 99.996%;
+			}
+			&.col-d-lg-11 {
+				width: 91.663%;
+			}
+			&.col-d-lg-10 {
+				width: 83.333%;
+			}
+			&.col-d-lg-9 {
+				width: 74.997%;
+			}
+			&.col-d-lg-8 {
+				width: 66.664%;
+			}
+			&.col-d-lg-7 {
+				width: 58.331%;
+			}
+			&.col-d-lg-6 {
+				width: 49.998%;
+			}
+			&.col-d-lg-5 {
+				width: 41.665%;
+			}
+			&.col-d-lg-4 {
+				width: 33.332%;
+			}
+			&.col-d-lg-3 {
+				width: 24.999%;
+			}
+			&.col-d-lg-2 {
+				width: 16.666%;
+			}
+			&.col-d-lg-1 {
+				width: 8.333%;
+			}
+			&.col-d-lg-0 {
+				display: none;
+			}
+		}
+		@media (max-width: 1330px) {
+			&.col-d-12 {
+				width: 99.996%;
+			}
+			&.col-d-11 {
+				width: 91.663%;
+			}
+			&.col-d-10 {
+				width: 83.333%;
+			}
+			&.col-d-9 {
+				width: 74.997%;
+			}
+			&.col-d-8 {
+				width: 66.664%;
+			}
+			&.col-d-7 {
+				width: 58.331%;
+			}
+			&.col-d-6 {
+				width: 49.998%;
+			}
+			&.col-d-5 {
+				width: 41.665%;
+			}
+			&.col-d-4 {
+				width: 33.332%;
+			}
+			&.col-d-3 {
+				width: 24.999%;
+			}
+			&.col-d-2 {
+				width: 16.666%;
+			}
+			&.col-d-1 {
+				width: 8.333%;
+			}
+			&.col-d-0 {
+				display: none;
+			}
+		}
+		@media (max-width: 1023px) {
+			&.col-t-12 {
+				width: 99.996%;
+			}
+			&.col-t-11 {
+				width: 91.663%;
+			}
+			&.col-t-10 {
+				width: 83.333%;
+			}
+			&.col-t-9 {
+				width: 74.997%;
+			}
+			&.col-t-8 {
+				width: 66.664%;
+			}
+			&.col-t-7 {
+				width: 58.331%;
+			}
+			&.col-t-6 {
+				width: 49.998%;
+			}
+			&.col-t-5 {
+				width: 41.665%;
+			}
+			&.col-t-4 {
+				width: 33.332%;
+			}
+			&.col-t-3 {
+				width: 24.999%;
+			}
+			&.col-t-2 {
+				width: 16.666%;
+			}
+			&.col-t-1 {
+				width: 8.333%;
+			}
+			&.col-t-0 {
+				display: none;
+			}
+		}
+		@media (max-width: 560px) {
+			&.col-m-12 {
+				width: 99.996%;
+			}
+			&.col-m-11 {
+				width: 91.663%;
+			}
+			&.col-m-10 {
+				width: 83.333%;
+			}
+			&.col-m-9 {
+				width: 74.997%;
+			}
+			&.col-m-8 {
+				width: 66.664%;
+			}
+			&.col-m-7 {
+				width: 58.331%;
+			}
+			&.col-m-6 {
+				width: 49.998%;
+			}
+			&.col-m-5 {
+				width: 41.665%;
+			}
+			&.col-m-4 {
+				width: 33.332%;
+			}
+			&.col-m-3 {
+				width: 24.999%;
+			}
+			&.col-m-2 {
+				width: 16.666%;
+			}
+			&.col-m-1 {
+				width: 8.333%;
+			}
+			&.col-m-0 {
+				display: none;
+			}
+		}
+	}
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+
+/*
+	4. Preloader
+*/
+
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	background: @bg2;
+	z-index: 1000;
+	.spinner {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		width: 1px;
+		height: 100%;
+		.double-bounce1, .double-bounce2 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255,255,255,0.05);
+		}
+		.double-bounce2 {
+			background: rgba(255,255,255,0.15);
+			height: 0;
+			-webkit-animation: loading 2.0s infinite ease-in-out;
+			animation: loading 2.0s infinite ease-in-out;
+		}
+	}
+}
+
+
+/*
+	5. Typography
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 5px 0;
+	font-family: @default-font;
+	font-size: @h1-size;
+	color: @white-color;
+	line-height: @h1-size+8;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: @h2-size;
+}
+
+h3 {
+	font-size: @h3-size;
+}
+
+h4 {
+	font-size: @h4-size;
+}
+
+h5 {
+	font-size: @h5-size;
+}
+
+h6 {
+	font-size: @h6-size;
+}
+
+p {
+	font-size: 15px;
+	line-height: @line-height;
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+
+strong {
+	font-weight: 700;
+}
+
+/* links, buttons */
+.lnks {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.lnk, .button {
+	position: relative;
+	display: inline-block;
+	height: 56px;
+	line-height: 56px;
+	font-size: @small-size;
+	color: @white-color;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	.icon {
+		position: relative;
+		top: 2px;
+		left: 2px;
+		font-size: @large-size;
+		.transition(all 0.3s ease 0s);
+	}
+	&:hover {
+		color: @white-color;
+		.icon {
+			left: 6px;
+		}
+	}
+}
+
+.button {
+	display: inline-block;
+	float: none;
+	width: auto;
+}
+
+a { 
+	color: @default-color;
+	text-decoration: none;
+	opacity: 1;
+	outline: none;
+	&:hover {
+		text-decoration: none;
+		color: @active-color;
+	}
+}
+
+/* lists */
+ol, ul { 
+	list-style: none;
+	margin-top: 0px; 
+	margin-bottom: 0px;
+	padding-left: 0px; 
+}
+
+ul ul, 
+ul ol,
+ol ol, 
+ol ul { 
+	margin-bottom: 0px;
+}
+
+li { 
+	margin-bottom: 0px;
+}
+
+/* code */
+code {
+	background: @light-color;
+	font-size: 16px;
+	font-family: @default-font;
+	margin: 20px 0;
+	padding: 10px 20px;
+}
+
+/* tables */
+table {
+	width: 100%;
+	margin: 30px 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+th {
+	font-weight: 500;
+	border: none;
+	border-bottom: 1px solid @light-color;
+	color: @white-color;
+	padding: 12px 15px; 
+	text-align: left;
+}
+
+td {
+	border: none;
+	border-bottom: 1px solid @light-color;
+	padding: 12px 15px; 
+	text-align: left;
+	color: @default-color;
+}
+
+/* blockquote */
+blockquote {
+	font-family: @default-font;
+}
+
+
+/*
+	6. Forms
+*/
+
+input,
+textarea,
+button {
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-family: @default-font;
+	font-size: @small-size;
+	width: 100%;
+	height: 60px;
+	color: @white-color;
+	background: none;
+	border: none;
+	border-bottom: @form-border;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	resize: none;
+	outline: 0;
+	.transition(all 0.3s ease 0s);
+	.border-radius(0px);
+	&:focus {
+		color: @white-color;
+		border-bottom: @form-border-hover;
+	}
+}
+
+textarea {
+	padding: 15px 0;
+	height: 80px;
+}
+
+button {
+	width: auto;
+	display: inline-block;
+	vertical-align: top;
+	color: @white-color;
+	border-bottom: @form-border;
+	text-align: left;
+	cursor: pointer;
+	&:hover {
+		border-bottom: @form-border-hover;
+	}
+}
+
+label, legend { 
+	display: block;
+	padding-bottom: 10px;
+	font-family: @default-font;
+	font-size: @default-size;
+}
+
+fieldset {
+	border-width: 0; 
+	padding: 0; 
+}
+
+input[type="checkbox"], 
+input[type="radio"] { 
+	display: inline; 
+}
+
+::-webkit-input-placeholder {
+	color: @extra-color;
+}
+
+:-moz-placeholder { 
+	color: @extra-color;
+}
+
+::-moz-placeholder {
+	color: @extra-color;
+}
+
+:-ms-input-placeholder {  
+	color: @extra-color;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+	color: @white-color;
+}
+
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { 
+	color: @white-color;
+}
+
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+	color: @white-color;
+}
+
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {  
+	color: @white-color;
+}
+
+input.error, textarea.error {
+	border-bottom: 1px solid @error-color!important;
+}
+
+label.error {
+	display: none!important;
+}
+
+input.error::-moz-placeholder, 
+textarea.error::-moz-placeholder {
+	color: @error-color;
+}
+
+input.error:-moz-placeholder, 
+textarea.error:-moz-placeholder {
+	color: @error-color;
+}
+
+input.error:-ms-input-placeholder, 
+textarea.error:-ms-input-placeholder {
+	color: @error-color;
+}
+
+input.error::-webkit-input-placeholder, 
+textarea.error::-webkit-input-placeholder {
+	color: @error-color;
+}
+
+
+/*
+	7. Alignments
+*/
+
+.align-center {
+	text-align: center !important;
+}
+
+.align-right {
+	text-align: right !important;
+}
+
+.align-left {
+	text-align: left !important;
+}
+
+.pull-right { 
+	float: right !important;
+}
+
+.pull-left { 
+	float: left !important; 
+}
+
+.pull-none { 
+	float: none !important;
+}
+
+/* width */
+.full-width {
+	max-width: 100% !important;
+	width: 100% !important; 
+}
+
+.full-max-width {
+	max-width: 100% !important;
+	width: auto !important;
+}
+
+/* vertical align */
+.centrize {
+	display: table !important;
+	table-layout: fixed !important;
+	height: 100% !important;
+	position: relative !important;
+}
+
+.vertical-center {
+	display: table-cell !important;
+	vertical-align: middle !important;
+}
+
+.vertical-top {
+	display: table-cell !important;
+	vertical-align: top !important;
+}
+
+.vertical-bottom {
+	display: table-cell !important;
+	vertical-align: bottom !important;
+}
+
+/* text formating */
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+
+.text-lowercase {
+	text-transform: lowercase !important;
+}
+
+.text-capitalize {
+	text-transform: capitalize !important;
+}
+
+.text-regular {
+	font-weight: 400 !important;
+}
+
+.text-bold {
+	font-weight: 700 !important;
+}
+
+.text-italic {
+	font-style: italic !important;
+}
+
+/* clearing */
+.clear {
+	clear: both;
+}
+
+
+/*
+	8. Animations
+*/
+
+/* preloader */
+@-webkit-keyframes loading {
+	0% {
+		height: 0;
+		top: 0;
+		bottom: auto;
+	}
+	50% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	51% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	52% {
+		height: 100%;
+		top: auto;
+		bottom: 0;
+	}
+	100% { 
+		height: 0;
+		top: auto;
+		bottom: 0;
+	}
+}
+
+@keyframes loading {
+	0% {
+		height: 0;
+		top: 0;
+		bottom: auto;
+	}
+	50% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	51% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	52% {
+		height: 100%;
+		top: auto;
+		bottom: 0;
+	}
+	100% { 
+		height: 0;
+		top: auto;
+		bottom: 0;
+	}
+}
+
+/* lines */
+@-webkit-keyframes lines {
+	0% {
+		height: 0;
+		top: 0;
+		bottom: auto;
+	}
+	50% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	51% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	52% {
+		height: 100%;
+		top: auto;
+		bottom: 0;
+	}
+	100% { 
+		height: 0;
+		top: auto;
+		bottom: 0;
+	}
+}
+
+@keyframes lines {
+	0% {
+		height: 0;
+		top: 0;
+		bottom: auto;
+	}
+	50% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	51% { 
+		height: 100%;
+		top: 0;
+		bottom: auto;
+	}
+	52% {
+		height: 100%;
+		top: auto;
+		bottom: 0;
+	}
+	100% { 
+		height: 0;
+		top: auto;
+		bottom: 0;
+	}
+}
