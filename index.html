@@ -215,6 +215,8 @@
 										<a href="https://github.com/vigneshpy"><i class="icon la la-github"></i></a>
 										<a href="https://twitter.com/vigneshpy1"><i class="icon la la-twitter"></i></a>
 										<a href="https://www.linkedin.com/in/vigneshpy/"><i class="icon la la-linkedin"></i></a>
+
+										
 									
 									</div>
 								</div>
@@ -660,14 +662,6 @@
 									</div>
 								</div>
 
-								<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-	
-
 								<!-- contacts item -->
 					
 
@@ -781,6 +775,28 @@
 		Main Scripts
 	-->
 	<script src="js/scripts.js"></script>
+	
+<script>
+	window.fbAsyncInit = function() {
+	  FB.init({
+		appId      : '{your-app-id}',
+		cookie     : true,
+		xfbml      : true,
+		version    : '{api-version}'
+	  });
+		
+	  FB.AppEvents.logPageView();   
+		
+	};
+  
+	(function(d, s, id){
+	   var js, fjs = d.getElementsByTagName(s)[0];
+	   if (d.getElementById(id)) {return;}
+	   js = d.createElement(s); js.id = id;
+	   js.src = "https://connect.facebook.net/en_US/sdk.js";
+	   fjs.parentNode.insertBefore(js, fjs);
+	 }(document, 'script', 'facebook-jssdk'));
+  </script>
 	
 </body>
 </html>
