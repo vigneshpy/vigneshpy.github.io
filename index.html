@@ -667,6 +667,10 @@
   data-width="450"
   data-show-faces="true">
 </div>
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
 </center>
 
 
@@ -1573,6 +1577,15 @@
 	  FB.AppEvents.logPageView();   
 		
 	};
+	function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
   
 	(function(d, s, id){
 	   var js, fjs = d.getElementsByTagName(s)[0];
